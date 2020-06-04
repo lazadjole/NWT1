@@ -1,0 +1,25 @@
+<div >
+<div class="row py-4" >
+    <div class="col">
+        <div class="h4 display-4 text-center" *ngIf="recipeDetail!=null">
+            {{recipeDetail.title}}
+        </div>
+        <div class="py-4">
+            <h1><strong>Ingredients:</strong></h1>
+            <div [innerHTML]="data1"></div> 
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-3 mx-auto">
+
+        <button class="btn btn-danger btn-block" (click)="onOrder()">Order Ingredient</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col py-4">
+        <h1 class="display-3"><strong>Instructions</strong></h1>
+        <div [innerHTML]="data"></div> 
+    </div>
+</div>
+</div>

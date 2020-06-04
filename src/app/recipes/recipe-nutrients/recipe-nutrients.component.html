@@ -1,0 +1,141 @@
+<div class="container text-center">
+    <div class="row ">
+        <div class="col">
+        <h3 class="display-4">Search Recipes by Nutrients</h3>
+        
+        <p class="text-muted p-4">Find a set of recipes that adhere to the given nutritional limits. You may set many nutrients</p>
+     <form (ngSubmit)="onSubmit(f)" #f="ngForm" > 
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label"
+          ngbTooltip="The minimum amount of carbohydrogen"
+          placement="left"
+          >minCarbs</label>
+          <input type="number"
+           class="form-control
+           col-sm-4"
+           ngModel 
+           ngbTooltip="values must be equal or greater than zero"
+           placement="right"
+           name="minCarbs"
+           required
+            pattern="^[0-9]+[0-9]*$">
+            </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label"
+            ngbTooltip="The maximum amount of carbohydrogen"
+            placement="left"
+            >maxCarbs</label>
+            <input type="number" 
+            class="form-control 
+            col-sm-4"
+            ngModel 
+            name="maxCarbs" 
+            ngbTooltip="values must be equal or greater than zero"
+            placement="right"
+            required
+               pattern="^[0-9]+[0-9]*$">
+            </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label"
+            ngbTooltip="The minimum amount of fat in grams the recipe must have"
+            placement="left"
+            >minFat</label>
+            <input type="number" 
+             name="minFat" 
+             class="form-control col-sm-4"
+             ngModel 
+             ngbTooltip="values must be equal or greater than zero"
+             placement="right"
+             required
+               pattern="^[0-9]+[0-9]*$"
+             >
+              </div>
+             <div class="form-group row">
+              <label class="col-sm-2 col-form-label"
+              ngbTooltip="The maximum amount of fat in grams the recipe must have"
+              placement="left"
+              >maxFat</label>
+              <input type="number" 
+               name="maxFat" 
+               class="form-control col-sm-4" 
+               ngModel 
+               ngbTooltip="values must be equal or greater than zero"
+               placement="right"
+               required
+               pattern="^[0-9]+[0-9]*$"
+               >
+    
+                </div>
+            <div class="form-group row">
+                 <label class="col-sm-2 col-form-label"
+                 ngbTooltip="The minimum amount of cholesterol in miligrams the recipe must have"
+                 placement="left">minCholesterol</label>
+                <input type="number" 
+                 name="minCholesterol" 
+                 class="form-control col-sm-4" 
+                 ngModel 
+                 ngbTooltip="values must be equal or greater than zero"
+                placement="right"
+                required
+               pattern="^[0-9]+[0-9]*$"
+                    >
+
+                </div>
+            <div class="form-group row">
+                 <label class="col-sm-2 col-form-label"
+                 ngbTooltip="The maximum amount of cholesterol in miligrams the recipe must have"
+                 placement="left">maxCholesterol</label>
+                 <input type="number" 
+                 name="maxCholesterol" 
+                class="form-control col-sm-4" 
+                 ngModel 
+                 ngbTooltip="values must be equal or greater than zero"
+                 placement="right"
+                 required
+               pattern="^[0-9]+[0-9]*$"
+                >
+    
+            </div>
+            <div class="form-group row">
+               <label class="col-sm-2 col-form-label"
+               ngbTooltip="The minimum amount of saturated fat in grams the recipe must have"
+               placement="left">minSaturatedFat</label>
+               <input type="number" 
+                   name="minSaturatedFat" 
+                   class="form-control col-sm-4" 
+                   ngModel 
+                   ngbTooltip="values must be equal or greater than zero"
+                    placement="right"
+                    required
+               pattern="^[0-9]+[0-9]*$"
+                     >
+              </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label"
+              ngbTooltip="The minimum amount of saturated fat in grams the recipe must have"
+              placement="left">maxSaturatedFat</label>
+              <input type="number" 
+               name="maxSaturatedFat" 
+               class="form-control col-sm-4" 
+               ngModel 
+               ngbTooltip="values must be equal or greater than zero"
+               placement="right"
+               required
+               pattern="^[0-9]+[0-9]*$"
+               >
+             </div>     
+            <button type="submit" class="btn btn-primary  col-sm-2">Search</button>
+     </form>   
+    </div>
+    </div>
+    <div class="row py-4" >
+        <div class="col">
+            <app-recipe-list *ngIf="recipes!=null" [isLoad]="true" [recipes]=recipes></app-recipe-list>
+        </div>
+    </div>
+    <div class="py-4" *ngIf="noRecipes">
+        <div  class="col-md-8 mx-auto text-center ">
+            <p class="display-4"><fa-icon [icon]="faCoffee"></fa-icon>  no result</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+    <div class="container">
+    <a class="navbar-brand" [routerLink]="['/recipes']">What to eat</a>
+    
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+        aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <div ngbDropdown class="d-inline-block">
+                <button class="btn btn-primary"
+                 id="dropdownMenu1" 
+                ngbDropdownToggle>Recipes</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownMenu1">
+                    <button class="dropdown-item" [routerLink]="['/recipes']">by name</button>
+                    <button class="dropdown-item" [routerLink]="['/recipes/nutrients']">by nutrients</button>
+                </div>
+            </div>
+            <ng-template [ngIf]="isAuth">
+
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" [routerLink]="['/meal-plan']" >Meal Plan</a>
+                </li>
+            </ng-template>
+            
+            
+         
+        </ul>
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <ng-template [ngIf]="!isAuth" >
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" [routerLink]="['/signup']"><fa-icon [icon]="faUser"></fa-icon>Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/signin']"><fa-icon [icon]="faUserCheck"></fa-icon>Log in</a>
+                </li>
+            </ng-template>
+            <ng-template [ngIf]="isAuth" >
+                <li class="nav-item"  >
+                    <a class="nav-link" (click)="onLogout()" style="cursor: pointer;"><fa-icon [icon]="faUserSlash"></fa-icon>Log out</a>
+                </li>
+            </ng-template>
+            
+           
+        </ul>
+    </div>
+</div>
+</nav>
+
+

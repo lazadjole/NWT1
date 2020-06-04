@@ -1,0 +1,32 @@
+<a (click)="open(content)" style="cursor: pointer;">
+  <div class="card">
+    <img class="card-img-top " src="{{recipe.imagePath}}" alt="no image" width="5%" height="5%">
+    <div class="card-body">
+      <h4 class="card-title mb-2 text-center">{{recipe.title}}</h4>
+      <hr>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Redy in minute: {{recipe.redyInMinute}}</li>
+          <li class="list-group-item">Serving: {{recipe.serving}}</li>
+          <li class="list-group-item">Helth score: {{recipe.healthScore}}</li>
+        </ul>     
+      </div>
+    </div>  
+</a>
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title display-5 text-center" id="modal-basic-title">{{recipe.title}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div [innerHTML]="data"></div> 
+  </div>
+  <div class="modal-footer">
+    <button *ngIf="isAuth" type="button" class="btn btn-outline-dark" (click)="onRecipDetail()">View detail</button>
+  </div>
+</ng-template>
+
+

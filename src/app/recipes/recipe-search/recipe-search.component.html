@@ -1,0 +1,23 @@
+<div class="row">
+<div class="col-md-6 mx-auto">
+    <div class="form-group">
+    
+      <div class="input-group ">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><fa-icon [icon]="faFileAlt"></fa-icon></span>
+        </div>
+        <input type="text"  
+            class="form-control" 
+             aria-describedby="helpId" 
+            #recipeName
+             ngbTooltip="Enter recipe"
+            placement="bottom">
+      </div>
+        <button type="button"  class="btn btn-primary btn-lg btn-block mt-5" (click)="onSearchRecipe(recipeName)">Search</button>
+    </div>
+</div>
+</div>
+
+
+
+
