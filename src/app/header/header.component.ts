@@ -18,6 +18,10 @@ export class HeaderComponent implements OnInit,DoCheck{
   faUser=faUser;
   faUserSlash=faUserSlash;
   isAuth:boolean;
+   navbarOpen = false;
+   toggleNavbar() {
+                this.navbarOpen = !this.navbarOpen;
+              }
   constructor(private authService:AuthService,
               private router:Router) { }
 
